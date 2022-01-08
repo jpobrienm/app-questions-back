@@ -7,4 +7,5 @@ import reactor.core.publisher.Flux;
 
 @Repository
 public interface QuestionRepository extends ReactiveMongoRepository<Question, String> {
+    Flux<Question> findAllByUserId(String id);
 }
