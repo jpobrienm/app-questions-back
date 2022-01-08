@@ -1,6 +1,7 @@
 package com.example.BackPetProject.Collections;
 
 import com.example.BackPetProject.Enums.Categories;
+import com.example.BackPetProject.Enums.Types;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,6 +17,7 @@ public class Question {
     private String userId;
     private String questionBody;
     private Categories category;
+    private Types type;
     private Integer score;
     private Date dateOf;
     private Map<String, Integer> votes;
@@ -34,6 +36,10 @@ public class Question {
 
     public Categories getCategory() {
         return category;
+    }
+
+    public Types getTypes() {
+        return type;
     }
 
     public Integer getScore() {
@@ -62,6 +68,10 @@ public class Question {
 
     public void setCategory(Categories category) {
         this.category = category;
+    }
+
+    public void setTypes(Types types) {
+        this.type = types;
     }
 
     public void setScore(Integer score) {

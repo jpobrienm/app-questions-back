@@ -1,10 +1,12 @@
 package com.example.BackPetProject.DTO;
 
 import com.example.BackPetProject.Enums.Categories;
+import com.example.BackPetProject.Enums.Types;
 import jdk.jfr.Category;
 import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
 public class QuestionDto {
@@ -14,10 +16,11 @@ public class QuestionDto {
     private String userId;
     @NotBlank
     private String questionBody;
-    @NotBlank
+    @NotNull
     private Categories category;
+    @NotNull
+    private Types type;
     private Integer score;
-    @NotBlank
     private Date dateOf;
     private Map<String, Integer> votes;
 
@@ -35,12 +38,13 @@ public class QuestionDto {
         this.votes = new HashMap<>();
     }
 
-    public QuestionDto(String id, String userId, String body, Categories category, Integer score,
+    public QuestionDto(String id, String userId, String body, Categories category, Types type, Integer score,
                        Date dateOf, Map<String, Integer> votes){
         this.id = id;
         this.userId = userId;
         this.questionBody = body;
         this.category = category;
+        this.type = type;
         this.score = score;
         this.dateOf = dateOf;
         this.votes = votes;
@@ -60,6 +64,10 @@ public class QuestionDto {
 
     public Categories getCategory() {
         return category;
+    }
+
+    public Types getType() {
+        return type;
     }
 
     public Integer getScore() {
@@ -88,6 +96,10 @@ public class QuestionDto {
 
     public void setCategory(Categories category) {
         this.category = category;
+    }
+
+    public void setType(Types type) {
+        this.type = type;
     }
 
     public void setScore(Integer score) {

@@ -18,6 +18,7 @@ public class QuestionMapper {
             question.setUserId(questionDto.getUserId());
             question.setQuestionBody(questionDto.getQuestionBody());
             question.setCategory(questionDto.getCategory());
+            question.setTypes(questionDto.getType());
             question.setScore(questionDto.getScore());
             question.setDateOf(questionDto.getDateOf());
             return question;
@@ -31,6 +32,7 @@ public class QuestionMapper {
             question.setUserId(questionDto.getUserId());
             question.setQuestionBody(questionDto.getQuestionBody());
             question.setCategory(questionDto.getCategory());
+            question.setTypes(questionDto.getType());
             question.setScore(0);
             question.setDateOf(Date.from(Instant.now()));
             return question;
@@ -43,6 +45,7 @@ public class QuestionMapper {
                 question.getUserId(),
                 question.getQuestionBody(),
                 question.getCategory(),
+                question.getTypes(),
                 question.getScore(),
                 question.getDateOf(),
                 question.getVotes()
