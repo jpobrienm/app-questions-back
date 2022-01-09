@@ -24,8 +24,7 @@ public class CreateUserUseCase implements CreateUser{
 
     @Override
     public Mono<UserDto> createUser(UserDto userDto) {
-        return userRepository
-                .save(userMapper.mapToUser().apply(userDto))
+        return userRepository.save(userMapper.mapToUser().apply(userDto))
                 .map(userMapper.mapToUserDto());
     }
 

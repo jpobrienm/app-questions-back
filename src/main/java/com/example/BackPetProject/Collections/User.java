@@ -1,5 +1,6 @@
 package com.example.BackPetProject.Collections;
 
+import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
