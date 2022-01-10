@@ -55,4 +55,13 @@ public class QuestionRouters {
                                 .findAllQuestions(), QuestionDto.class))
         );
     }
+
+    @Bean
+    public RouterFunction<ServerResponse> deleteQuestionById(DeleteQuestionByIdUseCase deleteQuestionByIdUseCase){
+        return route(DELETE("preguntas/eliminar/{id}").and(accept(MediaType.APPLICATION_JSON)),
+                request -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(BodyInserters.fromPublisher(deleteQuestionByIdUseCase
+                                .deleteQuestionById(request.pathVariable("id")), Void.class)));
+    }
 }
