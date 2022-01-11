@@ -1,4 +1,4 @@
-package com.example.BackPetProject.UseCases.Utils;
+package com.example.BackPetProject.Utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

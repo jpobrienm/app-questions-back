@@ -5,6 +5,8 @@ import com.example.BackPetProject.Enums.Types;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
+import java.lang.annotation.Native;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
@@ -14,6 +16,7 @@ public class Question {
 
     @Id
     private String id;
+    @NotBlank
     private String userId;
     private String questionBody;
     private Categories category;

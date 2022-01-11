@@ -3,6 +3,7 @@ package com.example.BackPetProject.Collections;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Map;
 import java.util.Set;
 
@@ -11,7 +12,9 @@ public class Answer {
 
     @Id
     private String id;
+    @NotBlank
     private String userId;
+    @NotBlank
     private String parentId;
     private String answerBody;
     private Integer score;
