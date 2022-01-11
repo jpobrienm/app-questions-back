@@ -1,9 +1,7 @@
 package com.example.BackPetProject.Routers;
 
 import com.example.BackPetProject.DTO.UserDto;
-import com.example.BackPetProject.UseCases.UserUseCases.CreateUserUseCase;
-import com.example.BackPetProject.UseCases.UserUseCases.FindUserByIdUseCase;
-import com.example.BackPetProject.UseCases.UserUseCases.FindUserByNameUseCase;
+import com.example.BackPetProject.UseCases.UserUseCases.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -22,6 +20,17 @@ public class UserRouters {
         return route(POST("/usuarios/crear").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(UserDto.class)
                         .flatMap(createUserUseCase::createUser)
+                        .flatMap(result -> ServerResponse.ok()
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .bodyValue(result))
+        );
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> updateUser(UpdateUserUseCase updateUserUseCase){
+        return route(PUT("/usuario/actualizar").and(accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(UserDto.class)
+                        .flatMap(updateUserUseCase::updateUser)
                         .flatMap(result -> ServerResponse.ok()
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .bodyValue(result))

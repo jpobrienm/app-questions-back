@@ -5,5 +5,5 @@ import reactor.core.publisher.Mono;
 
 @FunctionalInterface
 public interface CreateAnswer {
-    public Mono<AnswerDto> createAnswer(AnswerDto answerDto);
+    public Mono<String> createAnswer(AnswerDto answerDto);
 }
